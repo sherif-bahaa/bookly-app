@@ -6,6 +6,18 @@ class SplashViweBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Image.asset(AssetsData.logo));
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Image.asset(AssetsData.logo),
+        const SizedBox(height: 40),
+        const Text(
+          "Read free books",
+          textAlign: TextAlign.center,
+          style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+        ),
+      ],
+    );
   }
 }
