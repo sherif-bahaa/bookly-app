@@ -1,7 +1,5 @@
-
 import 'package:bookly_app/core/utils/assets_data.dart';
 import 'package:flutter/material.dart';
-
 class CustomeAppBar extends StatelessWidget {
   const CustomeAppBar({super.key});
 

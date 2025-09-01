@@ -2,7 +2,7 @@ import 'package:bookly_app/core/utils/assets_data.dart';
 import 'package:bookly_app/features/home/prsentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
-import 'package:get/utils.dart';
+
 
 class SplashViweBody extends StatefulWidget {
   const SplashViweBody({super.key});
