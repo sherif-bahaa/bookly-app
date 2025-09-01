@@ -1,4 +1,5 @@
 
+import 'package:bookly_app/core/utils/helper.dart';
 import 'package:bookly_app/features/home/prsentation/views/widgets/custome_card_image.dart';
 import 'package:flutter/material.dart';
 
@@ -7,11 +8,14 @@ class CustomListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      scrollDirection: Axis.horizontal,
-      itemBuilder: (context, index) {
-        return CustomCardImage();
-      },
+    return SizedBox(
+      height:  Helper.getResponsiveHeight(context, height: 200),
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          return CustomCardImage();
+        },
+      ),
     );
   }
 }
