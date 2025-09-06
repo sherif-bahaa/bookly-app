@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 abstract class Styles {
@@ -5,9 +6,12 @@ abstract class Styles {
     fontSize: 18,
     fontWeight: FontWeight.w600,
   );
-  static const textStyle14 = TextStyle(fontSize: 14);
+  static const textStyle14 = TextStyle(fontSize: 14, color: Colors.white54);
   static const textStyle20 = TextStyle(
+    fontWeight: FontWeight.bold,
+    color: Colors.white,
     fontSize: 20,
+
     //fontWeight: FontWeight.w600
   );
 
