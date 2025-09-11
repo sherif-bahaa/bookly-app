@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 class Helper {
-  
-
   static double getResponsiveWidth(
     BuildContext context, {
     required double width,
@@ -18,6 +16,4 @@ class Helper {
     double screenHeight = MediaQuery.sizeOf(context).height;
     return height * (screenHeight / 800).clamp(0.8, 1.2);
   }
-
-  
 }

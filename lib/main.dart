@@ -20,7 +20,6 @@ class BooklyApp extends StatelessWidget {
       ),
 
       debugShowCheckedModeBanner: false,
-
     );
   }
 }

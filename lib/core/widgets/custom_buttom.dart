@@ -7,7 +7,8 @@ class CustomButtom extends StatelessWidget {
     required this.text,
     required this.backgroundColor,
     required this.onPressed,
-    this.borderRadius, required this.style,
+    this.borderRadius,
+    required this.style,
   });
   final TextStyle? style;
   final String text;
@@ -32,7 +33,7 @@ class CustomButtom extends StatelessWidget {
           ),
         ),
         onPressed: onPressed,
-        child: Text(text, style:style),
+        child: Text(text, style: style),
       ),
     );
   }
