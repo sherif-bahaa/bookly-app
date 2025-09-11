@@ -70,14 +70,14 @@ class BookDetailsViewBody extends StatelessWidget {
               child: Text('you can also like', style: Styles.textStyle16),
             ),
           ),
-          SizedBox(height: Helper.getResponsiveHeight(context, height: 20)),
+          SizedBox(height: Helper.getResponsiveHeight(context, height: 14)),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(left: 25),
               child: CustomListView(),
             ),
           ),
-          SizedBox(height: Helper.getResponsiveHeight(context, height: 20)),
+          SizedBox(height: Helper.getResponsiveHeight(context, height: 30)),
         ],
       ),
     );
