@@ -1,1 +1,5 @@
-abstract class Failure{}
+abstract class Failure{
+  static ServerFailure (String toString) {
+
+  }
+}
