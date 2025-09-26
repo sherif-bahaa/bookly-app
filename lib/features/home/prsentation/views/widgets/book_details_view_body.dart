@@ -36,7 +36,9 @@ class BookDetailsViewBody extends StatelessWidget {
             padding: EdgeInsets.symmetric(
               horizontal: Helper.getResponsiveWidth(context, width: 105),
             ),
-            child: CustomCardImage(),
+            child: CustomCardImage(
+              imageurl: "",
+            ),
           ),
           SizedBox(height: Helper.getResponsiveHeight(context, height: 33)),
           const Text('The Jungle Book', style: Styles.textStyle30),
