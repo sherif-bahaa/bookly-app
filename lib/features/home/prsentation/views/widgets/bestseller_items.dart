@@ -1,12 +1,15 @@
 import 'package:bookly_app/core/utils/app_router.dart';
-import 'package:bookly_app/core/utils/assets_data.dart';
 import 'package:bookly_app/core/utils/helper.dart';
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class BestsellerItems extends StatelessWidget {
-  const BestsellerItems({super.key});
+  const BestsellerItems(
+      {super.key, required this.imageurl, required this.title, required this.author});
+  final String imageurl;
+  final String title;
+  final String author;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +24,7 @@ class BestsellerItems extends StatelessWidget {
             width: Helper.getResponsiveWidth(context, width: 100),
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(AssetsData.testimage),
+                image: NetworkImage(imageurl),
                 fit: BoxFit.fill,
               ),
             ),
@@ -34,7 +37,7 @@ class BestsellerItems extends StatelessWidget {
               SizedBox(
                 width: Helper.getResponsiveWidth(context, width: 200),
                 child: Text(
-                  "Harry Potter and the Goblet of Fire",
+                  title,
                   style: Styles.textStyle20.copyWith(color: Colors.white),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,

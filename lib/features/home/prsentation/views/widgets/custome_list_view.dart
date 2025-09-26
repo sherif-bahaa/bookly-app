@@ -19,9 +19,12 @@ class CustomListView extends StatelessWidget {
               itemCount: state.books.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                return CustomCardImage(
-                  imageurl:
-                      state.books[index].volumeInfo.imageLinks.smallThumbnail,
+                return Padding(
+                  padding: const EdgeInsets.only(right: 13),
+                  child: CustomCardImage(
+                    imageurl:
+                        state.books[index].volumeInfo.imageLinks.smallThumbnail,
+                  ),
                 );
               },
             ),

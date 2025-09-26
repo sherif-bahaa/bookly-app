@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class CustomCardImage extends StatelessWidget {
@@ -5,20 +6,14 @@ class CustomCardImage extends StatelessWidget {
   final String imageurl;
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 2.8 / 4,
-      child: Padding(
-        padding: const EdgeInsets.only(right: 13),
-        child: Container(
-          //width: Helper.getResponsiveWidth(context, width: 140),
-          //height: Helper.getResponsiveHeight(context, height: 150),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            image: DecorationImage(
-              image: NetworkImage(imageurl),
-              fit: BoxFit.fill,
-            ),
-          ),
+    return ClipRRect(
+      borderRadius: BorderRadius.all(Radius.circular(16)),
+      child: AspectRatio(
+        aspectRatio: 2.8 / 4,
+        child: CachedNetworkImage(
+          imageUrl: imageurl,
+          fit: BoxFit.fill,
+          errorWidget: (context, url, error) => Icon(Icons.error),
         ),
       ),
     );
