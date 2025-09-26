@@ -1,15 +1,16 @@
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/helper.dart';
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/home/data/model/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class BestsellerItems extends StatelessWidget {
-  const BestsellerItems(
-      {super.key, required this.imageurl, required this.title, required this.author});
-  final String imageurl;
-  final String title;
-  final String author;
+  const BestsellerItems({
+    super.key,
+    required this.book,
+  });
+  final BookModel book;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class BestsellerItems extends StatelessWidget {
             width: Helper.getResponsiveWidth(context, width: 100),
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: NetworkImage(imageurl),
+                image: NetworkImage(book.volumeInfo.imageLinks.smallThumbnail),
                 fit: BoxFit.fill,
               ),
             ),
@@ -37,26 +38,35 @@ class BestsellerItems extends StatelessWidget {
               SizedBox(
                 width: Helper.getResponsiveWidth(context, width: 200),
                 child: Text(
-                  title,
+                  book.volumeInfo.title!,
                   style: Styles.textStyle20.copyWith(color: Colors.white),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
               SizedBox(height: Helper.getResponsiveHeight(context, height: 3)),
-              Text("J.K. Rowling", style: Styles.textStyle14),
+              SizedBox(
+                width: Helper.getResponsiveWidth(context, width: 200),
+                child: Text(
+                  book.volumeInfo.authors![0],
+                  style: Styles.textStyle14,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
               SizedBox(height: Helper.getResponsiveHeight(context, height: 3)),
               Row(
                 children: [
-                  Text("19.99 €", style: Styles.textStyle20),
+                  Text("Free", style: Styles.textStyle20),
                   SizedBox(
                     width: Helper.getResponsiveWidth(context, width: 30),
                   ),
                   Icon(Icons.star, color: Colors.amber, size: 20),
                   SizedBox(width: Helper.getResponsiveWidth(context, width: 5)),
-                  Text("4.8", style: Styles.textStyle16),
+                  Text("4.3", style: Styles.textStyle16),
                   SizedBox(width: Helper.getResponsiveWidth(context, width: 5)),
-                  Text("(2052)", style: Styles.textStyle14),
+                  Text("(${book.volumeInfo.pageCount.toString()})",
+                      style: Styles.textStyle14),
                 ],
               ),
             ],

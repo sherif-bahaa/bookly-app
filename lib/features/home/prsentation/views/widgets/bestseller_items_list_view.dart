@@ -21,10 +21,7 @@ class BestsellerItemsListView extends StatelessWidget {
               return Padding(
                 padding: EdgeInsets.symmetric(vertical: 10),
                 child: BestsellerItems(
-                  author:" state.books[index].volumeInfo.authors.",
-                  title: state.books[index].volumeInfo.title ?? "",
-                  imageurl:
-                      state.books[index].volumeInfo.imageLinks.smallThumbnail,
+                book: state.books[index],
                 ),
               );
             },
