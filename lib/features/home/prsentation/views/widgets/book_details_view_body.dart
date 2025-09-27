@@ -5,6 +5,7 @@ import 'package:bookly_app/features/home/prsentation/views/widgets/books_action.
 import 'package:bookly_app/features/home/prsentation/views/widgets/custome_card_image.dart';
 import 'package:bookly_app/features/home/prsentation/views/widgets/simeller_list_view.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
   const BookDetailsViewBody({
@@ -27,7 +28,7 @@ class BookDetailsViewBody extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.close),
           onPressed: () {
-            Navigator.pop(context);
+            GoRouter.of(context).pop();
           },
         ),
       ),
@@ -72,7 +73,9 @@ class BookDetailsViewBody extends StatelessWidget {
             ],
           ),
           SizedBox(height: Helper.getResponsiveHeight(context, height: 20)),
-          BooksAction(),
+          BooksAction(
+            book: book,
+          ),
           SizedBox(height: Helper.getResponsiveHeight(context, height: 20)),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25),
