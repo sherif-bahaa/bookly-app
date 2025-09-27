@@ -1,13 +1,17 @@
 import 'package:bookly_app/core/utils/helper.dart';
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/home/data/model/book_model/book_model.dart';
 import 'package:bookly_app/features/home/prsentation/views/widgets/books_action.dart';
 import 'package:bookly_app/features/home/prsentation/views/widgets/custome_card_image.dart';
-import 'package:bookly_app/features/home/prsentation/views/widgets/custome_list_view.dart';
+import 'package:bookly_app/features/home/prsentation/views/widgets/simeller_list_view.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
-  const BookDetailsViewBody({super.key});
-
+  const BookDetailsViewBody({
+    super.key,
+    required this.book,
+  });
+  final BookModel book;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,29 +41,34 @@ class BookDetailsViewBody extends StatelessWidget {
               horizontal: Helper.getResponsiveWidth(context, width: 105),
             ),
             child: CustomCardImage(
-              imageurl: "",
+              imageurl: book.volumeInfo.imageLinks.smallThumbnail,
             ),
           ),
           SizedBox(height: Helper.getResponsiveHeight(context, height: 33)),
-          const Text('The Jungle Book', style: Styles.textStyle30),
+          Center(
+              child: Text(
+            maxLines: 2,
+            book.volumeInfo.title!,
+            style: Styles.textStyle30,
+            textAlign: TextAlign.center,
+          )),
           SizedBox(height: Helper.getResponsiveHeight(context, height: 6)),
           Opacity(
             opacity: 0.8,
             child: Text(
-              'Rudyard Kipling',
+              book.volumeInfo.authors![0],
               style: Styles.textStyle18.copyWith(fontStyle: FontStyle.italic),
             ),
           ),
           SizedBox(height: Helper.getResponsiveHeight(context, height: 20)),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-
             children: [
               Icon(Icons.star, color: Colors.amber, size: 20),
               SizedBox(width: Helper.getResponsiveWidth(context, width: 5)),
               Text("4.8", style: Styles.textStyle16),
               SizedBox(width: Helper.getResponsiveWidth(context, width: 5)),
-              Text("(2052)", style: Styles.textStyle14),
+              Text("(${book.volumeInfo.pageCount})", style: Styles.textStyle14),
             ],
           ),
           SizedBox(height: Helper.getResponsiveHeight(context, height: 20)),
@@ -76,7 +85,7 @@ class BookDetailsViewBody extends StatelessWidget {
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(left: 25),
-              child: CustomListView(),
+              child: SimellerListView(),
             ),
           ),
           SizedBox(height: Helper.getResponsiveHeight(context, height: 30)),
