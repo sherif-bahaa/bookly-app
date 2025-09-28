@@ -1,7 +1,9 @@
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/search/presntaion/manger/search_books_cubit/search_book_cubit.dart';
 import 'package:bookly_app/features/search/presntaion/views/widgets/custom_text_field.dart';
 import 'package:bookly_app/features/search/presntaion/views/widgets/result_list_view_search.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SearchViewBody extends StatelessWidget {
   const SearchViewBody({super.key});
@@ -13,7 +15,14 @@ class SearchViewBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CustomTextField(),
+          CustomTextField(
+            controller: TextEditingController(),
+            onChanged: (value) {
+              BlocProvider.of<SearchBookCubit>(context).featchSearchBooks(
+        category: value);
+
+            },
+          ),
           SizedBox(height: 16),
           Container(
             decoration: BoxDecoration(
@@ -22,7 +31,9 @@ class SearchViewBody extends StatelessWidget {
             child: Text("search results", style: Styles.textStyle18),
           ),
           SizedBox(height: 16),
-          Expanded(child: ResultListViewSearch()),
+          Expanded(child: ResultListViewSearch(
+            
+          )),
         ],
       ),
     );

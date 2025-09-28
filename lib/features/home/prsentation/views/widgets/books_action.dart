@@ -31,9 +31,9 @@ class BooksAction extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
               onPressed: () async {
-                final Uri _url = Uri.parse(book.volumeInfo.previewLink!);
-                if (await canLaunchUrl(_url)) {
-                  await launchUrl(_url);
+                final Uri url = Uri.parse(book.volumeInfo.previewLink!);
+                if (await canLaunchUrl(url)) {
+                  await launchUrl(url);
                 }
               },
               text: 'Free preview',
