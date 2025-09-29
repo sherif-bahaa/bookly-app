@@ -16,7 +16,7 @@ class SearchViewBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CustomTextField(
-            controller: TextEditingController(),
+          //  controller: TextEditingController(),
             onChanged: (value) {
               BlocProvider.of<SearchBookCubit>(context).featchSearchBooks(
         category: value);

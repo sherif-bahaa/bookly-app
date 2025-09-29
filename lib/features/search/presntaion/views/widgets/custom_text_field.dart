@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-   CustomTextField({super.key,required this.onChanged,required this.controller});
+  const CustomTextField({super.key,required this.onChanged,});
 final Function(String)? onChanged;
-  TextEditingController controller=TextEditingController();
+ 
   @override
   Widget build(BuildContext context) {
     return TextField(
-      controller:controller ,
+      
       onChanged:onChanged ,
       decoration: InputDecoration(
         hintText: 'Search',
