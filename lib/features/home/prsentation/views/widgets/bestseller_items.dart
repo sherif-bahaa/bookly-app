@@ -38,7 +38,7 @@ class BestsellerItems extends StatelessWidget {
               SizedBox(
                 width: Helper.getResponsiveWidth(context, width: 200),
                 child: Text(
-                  book.volumeInfo.title!,
+                  book.volumeInfo.title ?? "No Title",
                   style: Styles.textStyle20.copyWith(color: Colors.white),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
@@ -48,7 +48,7 @@ class BestsellerItems extends StatelessWidget {
               SizedBox(
                 width: Helper.getResponsiveWidth(context, width: 200),
                 child: Text(
-                  book.volumeInfo.authors![0],
+                  book.volumeInfo.authors?[0]??"No Author",
                   style: Styles.textStyle14,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
