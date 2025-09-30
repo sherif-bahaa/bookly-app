@@ -2,6 +2,7 @@ import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/helper.dart';
 import 'package:bookly_app/features/home/prsentation/manger/featured_books_cubit/featured_books_cubit.dart';
 import 'package:bookly_app/features/home/prsentation/views/widgets/custome_card_image.dart';
+import 'package:bookly_app/features/home/prsentation/views/widgets/shimmer_books.dart';
 import 'package:bookly_app/features/home/prsentation/views/widgets/view_error_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -40,7 +41,7 @@ class CustomListView extends StatelessWidget {
         } else if (state is FeaturedBooksFailure) {
           return ViewErrorWidget(errMessage: state.errMessage);
         } else {
-          return Center(child: CircularProgressIndicator());
+          return Center(child: ShimmerBooks());
         }
       },
     );
